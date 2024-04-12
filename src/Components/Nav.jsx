@@ -1,5 +1,6 @@
 import headerLogo from '../assets/images/header-logo.svg'
-// import {hamburger} from '../assets/icons'
+import {hamburger} from '../assets/icons'
+import { navLinks } from '../Constants'
 
 const Nav = () => {
   return (
@@ -12,10 +13,26 @@ const Nav = () => {
                 height={29}>
                 </img>
             </a>
-            <ul className='flex flex-1 justify-center items-center max-lg:hidden'>
-                <p>h</p>
+            <ul className='flex flex-1 justify-center gap-16 items-center max-lg:hidden'>
+                {navLinks.map((item)=>(
+                  <li key={item.label}>
+                    <a 
+                    href={item.href}
+                    className='font-montserrat leading-normal text-lg text-slate-gray'
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
             </ul>
-            {/* <img src={hamburger}></img> */}
+            <div className='lg:hidden'>
+            <img 
+            src={hamburger}
+            alt='hamburger menu'
+            width={25}
+            height={25}>
+            </img>
+            </div>
         </nav>
     </header>
   )
